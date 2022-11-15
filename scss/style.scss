@@ -1,0 +1,314 @@
+/* intuitivnejsi box-sizing */
+html { box-sizing: border-box; }
+*, ::after, ::before { box-sizing: inherit; }
+
+$primaryColor:#F03000;
+$secondaryColor:#F0F0F0;
+$thirdColor:#888888;
+
+$primaryfont:'Montserrat', sans-serif;
+$secondaryfont: 'Open Sans', sans-serif;
+
+body {
+    font-family: $primaryfont;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.nadpisSekce {
+    padding-left: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.logo {
+
+    &__img {
+        margin-left: auto;
+        margin-right: auto;
+        margin: 36px auto 0 auto;
+        display: block;
+    }
+
+    @media screen and (min-width:768px) {
+        margin: 30px 0 30px 20px;
+
+        &__img {
+            margin: 0;
+        }
+    }
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px auto 30px auto;
+    padding: 0;
+    list-style: none;
+    font-size: 18px;
+
+    &__item {
+        text-decoration: none;
+        color: $primaryColor;
+        padding: 20px;
+        display: inline-block;
+    }
+
+    &__item:hover {
+        color: white;
+        background-color: $primaryColor;
+        padding: 20px;
+    }
+}
+
+.header { 
+    @media screen and (min-width:768px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+.nabidkaZajezdu {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    margin-left: 20px;
+    margin-right: 20px;
+
+    @media screen and (min-width:768px) {
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: 360px 180px;
+        grid-template-areas: 
+            "zajezd--palmy zajezd--palmy"
+            "zajezd--jezero zajezd--kolo";
+         & .zajezd:first-child {
+             margin-top: 0;
+        }
+
+        &--lastminute {
+            grid-template-areas: 
+            "zajezd--horskejezero zajezd--horskejezero"
+            "zajezd--grandcanyon zajezd--kanary";
+        }
+
+        .zajezd--palmy {
+            grid-area: zajezd--palmy;
+        }
+    
+        .zajezd--jezero {
+            grid-area: zajezd--jezero;
+        }
+    
+        .zajezd--kolo {
+            grid-area: zajezd--kolo;
+        }
+    
+        .zajezd--horskejezero {
+            grid-area: zajezd--horskejezero;
+        }
+    
+        .zajezd--grandcanyon {
+            grid-area: zajezd--grandcanyon;
+        }
+    
+        .zajezd--kanary {
+            grid-area: zajezd--kanary;
+        }
+    }
+    
+    @media screen and (min-width:960px) {
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 180px 180px;
+        grid-template-areas: 
+            "zajezd--palmy zajezd--jezero"
+            "zajezd--palmy zajezd--kolo";
+         & .zajezd:first-child {
+             margin-top: 0;
+         }
+
+        &--lastminute {
+            grid-template-areas: 
+            "zajezd--grandcanyon zajezd--horskejezero"
+            "zajezd--kanary zajezd--horskejezero";
+        }
+    }
+}
+
+.zajezd {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 20px;
+
+    &--palmy {
+        background-image: url(/images/palmy.png);
+        background-size: cover;
+    }
+
+    &--jezero {
+        background-image: url(/images/jezero2.png);
+        background-size: cover;
+    }
+
+    &--kolo {
+        background-image: url(/images/nakole.png);
+        background-size: cover;
+    }
+
+    &--horskejezero {
+        background-image: url(/images/lodicka.png);
+        background-size: cover;
+    }
+
+    &--grandcanyon {
+        background-image: url(/images/podkova.png);
+        background-size: cover;
+    }
+
+    &--kanary {
+        background-image: url(/images/zatoka.png);
+        background-size: cover;
+    }
+
+    &--major {
+        min-height: 240px;
+    }
+    
+    &--minor {
+        min-height: 150px;
+    }
+    
+    &__cenovka {
+        font-size: 18px;
+        color: white;
+        background-color: $primaryColor;
+        display: inline-block;
+        margin-right: auto;
+        font-weight: 400;
+        padding:20px;
+    }
+    
+    &__jmeno {
+        color: white;
+        padding: 0;
+        margin: 0;
+        font-size: 28px;
+        font-weight: 600;
+    }
+
+    &__popis {
+        color: white;
+        margin: 20px auto 0 auto;
+        font-style: $secondaryfont;
+    }
+    
+}
+
+.karticky {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @media screen and (min-width:768px) {
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+
+.karticka {
+    display: flex;
+    background-color: $secondaryColor;
+    align-items: center;
+    padding: 20px;
+
+    &__ikona {
+        flex-basis: 20%;
+    }
+
+    &__textPart {
+        flex-basis: 80%;
+    }
+
+    &__ikonaImg {
+        height: 40px;
+        margin: auto;
+        display: block;
+    }
+
+    &__nadpis {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    &__text {
+        margin-bottom: 0;
+        font-style: $secondaryfont;
+    }
+
+    @media screen and (min-width:768px) {
+        display: block;
+
+        &__ikonaImg {
+            padding-bottom: 20px;
+        }
+    }
+}
+
+.novinky {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @media screen and (min-width:960px) {
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+.novinka {
+    padding: 20px;
+    background-color: $secondaryColor;
+
+    &__datum {
+        color: $thirdColor;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    &__nadpis {
+        color: $primaryColor;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    &__text {
+        text-align: justify;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+.paticka {
+    text-align: center;
+    background-color: #444444;
+    color: white;
+    padding: 20px ;
+    margin: 0 20px 40px 20px;
+}
+
